@@ -1,0 +1,9 @@
+.mt-login{
+    background: $white;
+    border: 1px solid rgba($mt-primary, 0.1);
+    border-radius: $mt-base-radius + px;
+    padding: $mt-base-space * 4 + px;
+    width: 50%;
+    margin: auto;
+    border-top: 3px solid $mt-primary;
+}
