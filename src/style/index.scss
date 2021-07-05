@@ -26,6 +26,9 @@ a{
 hr{
     margin: 20px 0;
 }
+button + button{
+    margin-left: 10px;
+}
 // Typography
 html{
     .mt-h1{
@@ -88,6 +91,12 @@ html{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+// Elements
+.mt-profile-info {
+    padding-left: 20px;
+}
+
 // Helpers
 
 // Utilites

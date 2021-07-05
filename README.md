@@ -73,4 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Application HTML structure
 - Root
     - App
-        - Section
+        - Section.mt-section.mt-section-name.#mt-section-name
+            - Div.mt-component.mt-component-name
+                - h3.mt-component-title
+                - h5.mt-txt-muted.mt-component-subtitle
+                    - div.mt-element.mt-element-name
+                        

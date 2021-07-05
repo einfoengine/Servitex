@@ -11,7 +11,7 @@ class Profile extends Component {
                             <div className="mt-profile-visual mr-3">
                                 <img src="holder.js/200x200" alt="Servitex user Mr. Name serves as a 5 star professional" className="img-thumbnail" />
                             </div>
-                            <div className="flex-fill mt-profile-info">
+                            <div className="flex-fill mt-profile-info pl-3">
                                 <h5><Link to='/profile'>Mr. User Name</Link></h5>
                                 <span className="text-muted mt-user-address">
                                     Dhaka Bangladesh

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 import Login from '../Login';
 import JobList from '../JobList';
@@ -11,6 +11,9 @@ import Message from '../Message';
 import JobPost from '../JobPost';
 import Profile from '../Profile';
 import ProfileCreate from '../ProfileCreate';
+import Home from '../Home';
+import Professionals from '../Professionals';
+// import Home from '../Home';
 
 class Body extends Component {
   constructor(props) {
@@ -32,27 +35,24 @@ class Body extends Component {
   render() {
     console.log('body props', this.props);
     return (
-      <Container>
-        <Row>
-          {/* <Col>Hello</Col> */}
-          <Col md={this.state.layout.main}>
-              <Switch>
-                <Route path='/' exact component={Login} />   
-                <Route path='/jobs' exact component={JobList} />   
-                <Route path='/myjobs' exact component={MyJobs} />
-                <Route path='/reports' exact component={Reports} />
-                <Route path='/messages' exact component={Messages} />
-                <Route path='/message/id' exact component={Message} />
-                <Route path='/login' exact component={Login} />
-                <Route path='/jobpost' exact component={JobPost} />
-                <Route path='/profile' exact component={Profile} />
-                <Route path='/profile-create' exact component={ProfileCreate} />
-                <Route path='/:job' exact component={JobDetails}/>
-              </Switch>
-          </Col>
-          {/* <Col>Hello</Col> */}
-        </Row>
-      </Container>
+      <div id='main-routs'> 
+        <Switch>
+          <Route path='/' exact component={Home} />   
+          <Route path='/login' exact component={Login} />   
+          <Route path='/jobs' exact component={JobList} />   
+          <Route path='/myjobs' exact component={MyJobs} />
+          <Route path='/reports' exact component={Reports} />
+          <Route path='/messages' exact component={Messages} />
+          <Route path='/message/id' exact component={Message} />
+          <Route path='/login' exact component={Login} />
+          <Route path='/jobpost' exact component={JobPost} />
+          <Route path='/profile' exact component={Profile} />
+          <Route path='/profile-create' exact component={ProfileCreate} />
+          <Route path='/professionals' exact component={Professionals} />
+          <Route path='/:job' exact component={JobDetails}/>
+        </Switch>
+      </div>
+
     );
   }
 }

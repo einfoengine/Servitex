@@ -33,6 +33,7 @@ class Body extends Component {
                   <Nav className='mr-auto'>
                     <Nav.Link><Link to='/profile'>Profile</Link></Nav.Link>
                     <Nav.Link><Link to='/profile-create'>Create Profile</Link></Nav.Link>
+                    <Nav.Link><Link to='/login'>Login</Link></Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
                 <Image className='circle' src='holder.js/50x50' thumbnail />
