@@ -31,7 +31,6 @@ const ListBuilder = (RefComponent, resources) => {
                 <section>
                     <div className={resources.wrapper}>
                         {userArray.map((user)=>{
-                            console.log('***********',user);
                             return <RefComponent  
                                 username={user.name}
                                 avater='holder.js/50x50'

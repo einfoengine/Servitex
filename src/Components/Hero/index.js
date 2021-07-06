@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import MainSearch from '../../Elements/MainSearch';
+import MainSearch from '../Elements/MainSearch';
 class Hero extends Component {
     
     constructor(props) {
@@ -20,7 +20,7 @@ class Hero extends Component {
     render() {
         let {comHeading, comClass, comPlaceholders} = this.state;
         return (
-            <section>
+            <section id='mt-hero' className='mt-section mt-hero'>
                 <Container>
                     <Row>
                         <Col>

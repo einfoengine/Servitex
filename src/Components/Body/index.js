@@ -35,7 +35,7 @@ class Body extends Component {
   render() {
     console.log('body props', this.props);
     return (
-      <div id='main-routs'> 
+      <> 
         <Switch>
           <Route path='/' exact component={Home} />   
           <Route path='/login' exact component={Login} />   
@@ -51,7 +51,7 @@ class Body extends Component {
           <Route path='/professionals' exact component={Professionals} />
           <Route path='/:job' exact component={JobDetails}/>
         </Switch>
-      </div>
+      </>
 
     );
   }

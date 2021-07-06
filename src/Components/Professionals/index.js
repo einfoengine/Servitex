@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import ListBuilder from '../Hoc/ListBuilder';
+import ListBuilder from '../Generators/ListBuilder';
 
 class Professionals extends Component {
     static resources = {
