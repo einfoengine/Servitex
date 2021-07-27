@@ -18,7 +18,7 @@ class Profile extends Component {
                                 </span>
                             </div>
                             <div className="mt-child-align-right mt-profile-settings">
-                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" className="btn btn-primary">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -120,14 +120,14 @@ class Profile extends Component {
                                     <h4 className="mt-module-title flex-fill">You skills</h4>
                                 </div>
                                 <div className="mt-module-body mt-skill-badges d-flex">
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
-                                    <span class="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
+                                    <span className="badge bg-secondary mr-3">Skill</span>
                                 </div>
                             </div>
                             {/* End module */}

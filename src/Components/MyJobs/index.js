@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Jobs from './Jobs';
-import SearchInArray from '../Elements/SearchInArray';
+import SearchInArray from '../Utilities/SearchInArray';
 
 class MyJobs extends Component {
   constructor(props) {

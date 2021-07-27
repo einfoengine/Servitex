@@ -1,34 +1,31 @@
 import React, {Component} from 'react';
 import GalleryBuilder from '../Generators/GalleryBuilder';
+import ServiceCategorieElement from './ServiceCategorieElement';
 
 const generatorProps = {
-    DataSource: 'https://jsonplaceholder.typicode.com/posts',
-    targetData: 'data'
+    dataSource: 'https://jsonplaceholder.typicode.com/posts',
+    targetData: 'data',
+    wrapClass: 'mt-component mt-services mt-grid-container'
 }
 
-const ServiceCategoriesElement = ({title, body}) => {
-    return (
-        <div className="mt-component mt-services">
-            <div className="mt-element mt-service mt-fancy-card card">
-                <h5>{title}</h5>
-                <p>{body}</p>
-            </div>
-        </div>
-    )
-}
-
-const ServiceCategories = (FinalElement) =>{    
-    class FinalComponent extends Component {
+const ServiceCategories = (GalleryBuilderRerurn) => {    
+    class ServicesGallery extends Component {
         render() {
             return (
-                <div>
-                    <FinalElement/>
-                </div>
+                <section id='mt-services-gallery' className='mt-section mt-services-gallery'>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                <GalleryBuilderRerurn/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             );
         }
     }
-    return FinalComponent
+    return ServicesGallery;
 }
 
 
-export default ServiceCategories(GalleryBuilder(ServiceCategoriesElement, generatorProps));
+export default ServiceCategories(GalleryBuilder(ServiceCategorieElement, generatorProps));

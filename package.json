@@ -18,7 +18,11 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
   "scripts": {
+    "watch": "nodemon sarver.js ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

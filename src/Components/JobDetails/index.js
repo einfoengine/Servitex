@@ -64,12 +64,12 @@ export default class JobDetails extends Component {
             <ListGroupItem>{this.state.job.description}</ListGroupItem>
             <ListGroupItem>
                 <h6>Activity on this job</h6>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Proposals:  Less than 5</li>
-                  <li class="list-group-item">Last viewed by client:  58 minutes ago</li>
-                  <li class="list-group-item">Interviewing: 1</li>
-                  <li class="list-group-item">Invites sent: 0</li>
-                  <li class="list-group-item">Unanswered invites: 0</li>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">Proposals:  Less than 5</li>
+                  <li className="list-group-item">Last viewed by client:  58 minutes ago</li>
+                  <li className="list-group-item">Interviewing: 1</li>
+                  <li className="list-group-item">Invites sent: 0</li>
+                  <li className="list-group-item">Unanswered invites: 0</li>
                 </ul>
                 
             </ListGroupItem>

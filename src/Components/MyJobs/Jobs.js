@@ -13,7 +13,7 @@ function Jobs({ jobs }) {
                 <Card.Body>
                   <Card.Title className={`post-id-${job.id} d-flex`}>
                     <a className='flex-fill' href={'/job/' + job.id}>{job.title}</a>
-                    <span class="badge bg-success">Status</span>
+                    <span className="badge bg-success">Status</span>
                   </Card.Title>
                   <Card.Subtitle className='mb-2 text-muted'>
                     <ul className='mt-job-finential-brief'>
@@ -34,9 +34,9 @@ function Jobs({ jobs }) {
                     <h6>Milestone:</h6>
                     <ol>
                       <li>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                        {/* <label class="form-check-label" for="flexCheckDefault">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                        {/* <label className="form-check-label" for="flexCheckDefault">
                           Default checkbox
                         </label> */}
                       </div>

@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         - Section#mt-section-name.mt-section.mt-section-name.
             - Container > Row > Col
                 - Div#mt-component-name.mt-component.mt-component-name
-                    - h3.mt-component-title
-                    - h5.mt-txt-muted.mt-component-subtitle
+                    - h3.mt-com-title
+                    - h5.mt-txt-muted.mt-com-subtitle
                         - div.mt-element.mt-element-name
                         

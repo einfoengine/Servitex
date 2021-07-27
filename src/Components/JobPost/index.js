@@ -67,40 +67,40 @@ class JobPost extends Component {
                 />
             </div>
             <div className='row mb-3'>
-                <div class='col-auto'>
+                <div className='col-auto'>
                     <label htmlFor="" className>Job types</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select className="form-select" aria-label="Default select example">
                       <option selected>Open this select menu</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
                 </div>
-                <div class='col-auto'>
+                <div className='col-auto'>
                     <label htmlFor="" className>Budget</label>
                     <input type="text" className="form-control" />
                 </div>
-                <div class='col-auto'>
+                <div className='col-auto'>
                     <label htmlFor="" className>Delivery time</label>
                     <input type="text" className="form-control" />
                 </div>
-                <div class='col-auto'>
+                <div className='col-auto'>
                     <label htmlFor="" className>Required skills</label>
                     <input type="text" className="form-control" />
                 </div>
             </div>
-            <div class='mb-3 job-details'>
-                <label for='exampleFormControlTextarea1' class='form-label'>
+            <div className='mb-3 job-details'>
+                <label for='exampleFormControlTextarea1' className='form-label'>
                 Job Details
                 </label>
                 <textarea
-                class='form-control'
+                className='form-control'
                 id='exampleFormControlTextarea1'
                 rows='3'
                 ></textarea>
             </div>
-            <div class='mb-3 job-details'>
-                <label for='exampleFormControlTextarea1' class='form-label'>
+            <div className='mb-3 job-details'>
+                <label for='exampleFormControlTextarea1' className='form-label'>
                 Upload file
                 </label>
                 <input type="file" className="form-control" />

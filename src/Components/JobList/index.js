@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Posts from './Posts';
-import Pagination from '../Elements/Pagination';
-import SearchInArray from '../Elements/SearchInArray';
+import Pagination from '../Utilities/Pagination';
+import SearchInArray from '../Utilities/SearchInArray';
 
 class JobList extends Component {
   constructor(props) {
