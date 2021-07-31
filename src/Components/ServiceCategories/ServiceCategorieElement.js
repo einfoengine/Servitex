@@ -1,24 +1,23 @@
 import React from 'react';
-import {ElementTitle, Modal} from '../Utilities';
-import ServiceRequest from './ServiceRequest';
+import {ElementTitle} from '../Utilities';
+import { Link } from 'react-router-dom';
 
-const ServiceCategorieElement = ({id, title, body, clickHandeler}) => {
+const ServiceCategorieElement = ({props}) => {
+    // console.log("service elements",props);
     return (
-        <div className="mt-element mt-service mt-fancy-card card" onClick={()=>{
-            console.log('I am clicked');
-            clickHandeler();
-        }}>
+        <div 
+            className="mt-element mt-service mt-fancy-card card" 
+        >
             <div className="mt-post-intro">
-                <ElementTitle text={title} />
-                <p>{body}</p>
+                <img src={props.img} alt="Cat Icon" />
+                <span>Service Providers: {props.count}</span>
+                <ElementTitle text={props.title} />
+                <p>{props.body}</p>
             </div>
-            <div className="element-modal">
-                <Modal id={`mt-service-${id}`} title={title} modalClass={`mt-service-${id}`} modalDialogClass='modal-xl' btn={'Submit Proposal'}>
-                    <ServiceRequest id={id} title={title}/>
-                </Modal>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#mt-service-${id}`}>
-                    Hire me
-                </button>
+            <div>
+                <Link to="/service-providers">
+                    Find a pro
+                </Link>
             </div>
         </div>
     )

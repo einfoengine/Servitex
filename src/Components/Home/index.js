@@ -12,7 +12,6 @@ class index extends Component {
     }
     
     render() {
-        console.log('Home state -', this.state.location);
         return (
             <>
                 <Hero />

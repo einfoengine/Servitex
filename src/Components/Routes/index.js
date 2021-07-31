@@ -13,6 +13,7 @@ import Profile from '../Profile';
 import ProfileCreate from '../ProfileCreate';
 import Home from '../Home';
 import Professionals from '../Professionals';
+import ServiceProviders from '../ServiceProviders';
 // import Home from '../Home';
 
 class Body extends Component {
@@ -33,7 +34,6 @@ class Body extends Component {
   }
 
   render() {
-    console.log('body props', this.props);
     return (
       <> 
         <Switch>
@@ -49,7 +49,8 @@ class Body extends Component {
           <Route path='/profile' exact component={Profile} />
           <Route path='/profile-create' exact component={ProfileCreate} />
           <Route path='/professionals' exact component={Professionals} />
-          <Route path='/:job' exact component={JobDetails}/>
+          <Route path='/service-providers' exact component={ServiceProviders} />
+          {/* <Route path='/:job' exact component={JobDetails}/> */}
         </Switch>
       </>
 

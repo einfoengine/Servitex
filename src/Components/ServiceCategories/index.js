@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import GalleryBuilder from '../Generators/GalleryBuilder';
 import ServiceCategorieElement from './ServiceCategorieElement';
+const dataSource = require('./data.json');
 
-const generatorProps = {
-    dataSource: 'https://jsonplaceholder.typicode.com/posts',
-    targetData: 'data',
-    wrapClass: 'mt-component mt-services mt-grid-container'
+const refProps = {
+    dataSource,
+    itemClass: 'mt-component mt-services mt-grid-container'
 }
 
-const ServiceCategories = (GalleryBuilderRerurn) => {    
+const ServiceCategories = (CategoryElements) => {    
     class ServicesGallery extends Component {
         render() {
             return (
@@ -16,7 +16,7 @@ const ServiceCategories = (GalleryBuilderRerurn) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <GalleryBuilderRerurn/>
+                                <CategoryElements/>
                             </div>
                         </div>
                     </div>
@@ -28,4 +28,4 @@ const ServiceCategories = (GalleryBuilderRerurn) => {
 }
 
 
-export default ServiceCategories(GalleryBuilder(ServiceCategorieElement, generatorProps));
+export default ServiceCategories(GalleryBuilder(ServiceCategorieElement, refProps));

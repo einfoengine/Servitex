@@ -1,4 +1,5 @@
 import React from 'react';
+import DateSelector from '../Utilities/DateSelector';
 
 const ServiceRequest = ({id, title, comClass}) => {
   return (
@@ -21,10 +22,18 @@ const ServiceRequest = ({id, title, comClass}) => {
             <span for="floatingTextarea2">Please write your message to the professional being agring the service details bellow</span>
           </div>
         </div>
-        <fieldset className='row mb-3'>
-          <legend className='col-form-label col-sm-2 pt-0'>Job Type</legend>
+        <div className='row mb-3'>
+          <label for='inputPassword3' className='col-sm-2 col-form-label'>
+            Dates
+          </label>
           <div className='col-sm-10'>
-            <div className='form-check'>
+            <DateSelector/>
+          </div>
+        </div>
+        <fieldset className='row mb-3'>
+          <legend className='col-form-label col-sm-2 pt-0'>Recurring</legend>
+          <div className='col-sm-10'>
+            {/* <div className='form-check'>
               <input
                 className='form-check-input'
                 type='radio'
@@ -48,9 +57,21 @@ const ServiceRequest = ({id, title, comClass}) => {
               <label className='form-check-label' for='gridRadios2'>
                 Regular
               </label>
+            </div> */}
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
             </div>
           </div>
         </fieldset>
+        <div className='row mb-3'>
+          <label for='inputPassword3' className='col-sm-2 col-form-label'>
+            Address
+          </label>
+          <div className='col-sm-10'>
+            <textarea class="form-control" placeholder="Write your work details" id="floatingTextarea2"></textarea>
+            <span for="floatingTextarea2">Please write your message to the professional being agring the service details bellow</span>
+          </div>
+        </div>
         <div className='row mb-3'>
           <div className='col-sm-10 offset-sm-2'>
             <div className='form-check'>
