@@ -8,7 +8,7 @@ const refProps = {
     itemClass: 'mt-component mt-services mt-grid-container'
 }
 
-const ServiceCategories = (CategoryElements) => {    
+const ServiceCategories = (CategoryElements) => {
     class ServicesGallery extends Component {
         render() {
             return (
