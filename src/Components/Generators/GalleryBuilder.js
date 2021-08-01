@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-console.log('GB Global scope');
-
 const GalleryBuilder = (RefComponent, refProps) => { 
     
-    console.log('GB mother component');
+    console.log('GB mother component', refProps);
 
     class NewComponent extends Component {
         constructor(props) {

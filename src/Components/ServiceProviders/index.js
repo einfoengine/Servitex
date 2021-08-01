@@ -7,12 +7,12 @@ import ServiceProvider from './ServiceProvider';
 const axios = require('axios');
 const refProps = {
     itemClass: '',
-    data: {}
+    users: {}
 }
 async function getData(){
     const provideres = await axios.get('https://jsonplaceholder.typicode.com/users');
     // console.log('SP global scope-----',provideres);
-    refProps.data = provideres
+    refProps.data = {...refProps}
 }
 getData();
 
