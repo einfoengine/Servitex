@@ -21,13 +21,15 @@ class Hero extends Component {
         let {comTitle, comClass, comPlaceholders} = this.state;
         return (
             <section id='mt-hero' className='mt-section mt-hero'>
-                <Container>
-                    <Row>
-                        <Col>
-                            <MainSearch comTitle={comTitle} comclassName={comClass} comPlaceholders={comPlaceholders}/>
-                        </Col>
-                    </Row>
-                </Container>
+                <div>
+                    <Container>
+                        <Row>
+                            <Col className='col-12'>
+                                <MainSearch comTitle={comTitle} comclassName={comClass} comPlaceholders={comPlaceholders}/>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
             </section>
         );
     }

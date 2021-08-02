@@ -1,31 +1,22 @@
 import React, {Component} from 'react';
 import GalleryBuilder from '../Generators/GalleryBuilder';
 import ServiceCategorieElement from './ServiceCategorieElement';
-import axios from 'axios';
-const dataSource = require('./data.json');
 
-const refProps = {
-    dataSource,
-    itemClass: 'mt-component mt-services mt-grid-container'
+const generatorProps = {
+    dataSource: 'https://jsonplaceholder.typicode.com/posts',
+    targetData: 'data',
+    wrapClass: 'mt-component mt-services mt-grid-container'
 }
 
-const getUsers = () => {
-    console.log('Get users - check JSON axios')
-    axios.get('data.json').then((res)=>{
-        console.log('JSON file ----',res)
-    }).catch(err => console.log('JSON file', err));
-}
-getUsers();
-
-const ServiceCategories = (CategoryElements) => {
+const ServiceCategories = (GalleryBuilderRerurn) => {    
     class ServicesGallery extends Component {
         render() {
             return (
-                <section id='mt-services-gallery' className='mt-section mt-services-gallery'>
+                <section id='mt-services-category' className='mt-section mt-services-category'>
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <CategoryElements/>
+                                <GalleryBuilderRerurn/>
                             </div>
                         </div>
                     </div>
@@ -37,4 +28,4 @@ const ServiceCategories = (CategoryElements) => {
 }
 
 
-export default ServiceCategories(GalleryBuilder(ServiceCategorieElement, refProps));
+export default ServiceCategories(GalleryBuilder(ServiceCategorieElement, generatorProps));

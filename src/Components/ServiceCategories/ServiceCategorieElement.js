@@ -1,23 +1,18 @@
 import React from 'react';
-import {ElementTitle} from '../Utilities';
-import { Link } from 'react-router-dom';
+import {ElementTitle, Modal} from '../Utilities';
+import ServiceRequest from './ServiceRequest';
 
-const ServiceCategorieElement = ({props}) => {
-    // console.log("service elements",props);
+const ServiceCategorieElement = ({id, title, body, clickHandeler}) => {
     return (
-        <div 
-            className="mt-element mt-service mt-fancy-card card" 
-        >
+        <div className="mt-element mt-service mt-fancy-card card" onClick={()=>{
+            console.log('I am clicked');
+            clickHandeler();
+        }}>
             <div className="mt-post-intro">
-                <img src={props.img} alt="Cat Icon" />
-                <span>Service Providers: {props.count}</span>
-                <ElementTitle text={props.title} />
-                <p>{props.body}</p>
-            </div>
-            <div>
-                <Link to="/service-providers">
-                    Find a pro
-                </Link>
+                <ElementTitle text={title} />
+                {/* <Image className='circle' src='holder.js/50x50' thumbnail /> */}
+                <img src="https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324_960_720.jpg" alt="Servitex Category" className="img-thumbnail" />
+                <p>{body}</p>
             </div>
         </div>
     )

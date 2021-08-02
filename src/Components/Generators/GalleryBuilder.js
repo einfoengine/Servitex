@@ -1,24 +1,46 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 const GalleryBuilder = (RefComponent, refProps) => { 
-    
-    console.log('GB mother component', refProps);
-
     class NewComponent extends Component {
         constructor(props) {
             super(props);
-            this.state = {}
+            this.state = {
+                allData: {},
+                mapData: [],
+            }
         }
+
+        componentDidMount = async() =>{
+            try{
+                const builderData = await axios.get(refProps.dataSource);
+                this.setState({
+                    allData: builderData,
+                    mapData: builderData.data
+                });
+                console.log('******** > State',this.state);
+            }catch(err){
+                console.log(err);
+            }
+        }
+
+        // Click handeler
+        clickHandeler = (id) => {
+            console.log('id', id);
+        }
+
         render(){
-            console.log('GB before return');
             return (
-                <div className={refProps.itemClass}>
+                <div className={refProps.wrapClass}>
                     {
-                        console.log('Inside return'),
-                        refProps.dataSource.map((item)=>{
+                        this.state.mapData.map((item)=>{
                             return <RefComponent  
-                                props = {item}
-                                key = {item.id}
+                                id={item.id}
+                                title={item.title}
+                                body={item.body}
+                                key={item.id}
+                                clickHandeler = {()=>{
+                                    this.clickHandeler(item.id);
+                                }}
                             />
                         })
                     }

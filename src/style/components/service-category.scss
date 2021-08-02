@@ -1,3 +1,6 @@
+.mt-services-category{
+    @include section-space;
+}
 .mt-service{
     img{
         max-width: 100%;
