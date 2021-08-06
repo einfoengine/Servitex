@@ -1,22 +1,13 @@
 const express = require('express');
-const moongoose = require('mongoose');
-const config = require('config');
+const connectDB = require('./config/db');
+
 const app = express();
-const port = process.env.PORT || 3000;
+connectDB()
 
-moongoose.connect(config.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
-db = moongoose.connection;
+app.get('/', (req, res) => {res.send('Hello World!')});
 
-db.on('error', (error)=>{console.log('!!!!!!',error)});
-db.once('open', (error)=>{console.log('Connected to the database')});
+const PORT = process.env.PORT || 5000;
 
-
-app.get('/', (req, res) => {
-    console.log("config -",config);
-
-  res.send('Hello World!');
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-})
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
+});
