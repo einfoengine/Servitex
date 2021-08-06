@@ -1,3 +1,4 @@
 {
-    "jobPostsApi" : "https://jsonplaceholder.typicode.com/posts"
+    "test": "I am test!",
+    "DATABASE_URL": "mongodb://localhost/servitex"
 }

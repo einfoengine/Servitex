@@ -1,0 +1,103 @@
+@import './var.scss';
+@import './mixins.scss';
+@import './layout.scss';
+
+// Global
+li{
+    list-style: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+::selection{
+    color: red;
+    background-color: $mt-primary;
+}
+body{
+    background: $mt-white;
+}
+a{
+    text-decoration: none;
+}
+hr{
+    margin: 20px 0;
+}
+button + button{
+    margin-left: 10px;
+}
+// Typography
+html{
+    .mt-h1{
+        font-size: $mt-h1;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: $mt-base-space * 3 + px;
+    }
+    .mt-h2{
+        font-size: $mt-h2;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: $mt-base-space * 2.5 + px;
+    }
+    .mt-h3{
+        font-size: $mt-h3;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: $mt-base-space * 2.5 + px;
+    }
+    .mt-h4{
+        font-size: $mt-h4;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: $mt-base-space * 2 + px;
+    }
+    .mt-h5{
+        font-size: $mt-h5;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: $mt-base-space * 2 + px;
+    }
+}
+// Images
+
+// Tables
+
+// Position spesific
+
+// Modules & Elements
+.mt-element, .mt-module{
+    margin-top: $mt-element-space + px;
+    margin-bottom: $mt-element-space + px;
+}
+
+// Bootstrap
+.card-header{
+    font-size: $mt-h4;
+    font-weight: bold;
+    background-color: $mt-primary;
+    color: $mt-white;
+}
+.badge + .badge{
+    margin-left: 10px;
+}
+.card{
+    padding: 20px;
+}
+.list-group-item{
+    // padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+// Elements
+.mt-profile-info {
+    padding-left: 20px;
+}
+
+// Helpers
+
+// Utilites
+.mt-status-success{
+    border-top: 3px solid $mt-primary;
+}

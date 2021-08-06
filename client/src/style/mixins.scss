@@ -1,0 +1,20 @@
+// Typography
+@mixin section-title{
+    font-size: $mt-h1;
+}
+
+// Space
+@mixin section-space{
+    padding: $mt-section-space + px 0;
+}
+
+// Background
+@mixin transparent-gradient-primary-to-secondary{
+    background-image: linear-gradient(to right, transparentize($mt-primary, 0.3), transparentize($mt-secondary, 0.1));
+}
+
+// Shadow
+@mixin shadow-big {
+    box-shadow: 0px 10px 30px 30px transparentize($color: #000000, $amount: 0.85);
+}
+
