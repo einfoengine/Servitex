@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
+// Model
+const User = require('../../models/User');
+
 // @route   GET api/users
 // @desc    users api
 // @access  public
@@ -32,11 +35,17 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
+        // Destructure the request
+        const {name, email, password, address} = req.body;
+        /* N. B. Model must be included in the script */
+
         // Check if the user exist
 
         // Get user gravatar
 
         // Encrypt password
+
+        // Return json web-tocken
 
         console.log('** Request - ', req.body);
         res.send("Post User route!");
