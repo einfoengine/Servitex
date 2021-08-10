@@ -32,6 +32,12 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
+        // Check if the user exist
+
+        // Get user gravatar
+
+        // Encrypt password
+
         console.log('** Request - ', req.body);
         res.send("Post User route!");
     }
