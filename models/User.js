@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     type: {
         type: String,
-        required: true
+        required: true,
+        default: 'buyer'
     },
     name: {
         type: String,
@@ -22,23 +23,21 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    address: {
-        house: {
-            type: String,
-            required: true,
-        },
-        road: {
-            type: String,
-            required: true,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        state: {
-            type: String,
-            required: true,
-        },
+    house: {
+        type: String,
+        required: true,
+    },
+    road: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    state: {
+        type: String,
+        required: true,
     },
     date: {
         type: Date,

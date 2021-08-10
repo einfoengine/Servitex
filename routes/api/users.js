@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const gravatar = require('gravatar');
 const { body, validationResult } = require('express-validator');
 
 // Model
@@ -23,12 +24,12 @@ router.post(
     // express-validator
     [
         // username must be an email
-        body('username', 'Username must be an email').isEmail(),
+        body('email', 'Email must be a valid email').isEmail(),
         // password must be at least 5 chars long
         body('password', 'Password must of 5 char minimum').isLength({ min: 5 }),
     ],
     // Action
-    (req, res)=>{
+    async (req, res)=>{
         // Finds the validation errors in this request and wraps them in an object with handy functions
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -36,19 +37,49 @@ router.post(
         }
 
         // Destructure the request
-        const {name, email, password, address} = req.body;
+        const {type, name, email, password, house, road, city, state} = req.body;
         /* N. B. Model must be included in the script */
 
-        // Check if the user exist
+        try{
+            // Check if the user exist
+            let user = await User.findOne({email});
+            // Through error if the user found.
+            if(user){
+                res.status(400).json({errors: [{message: 'User already exist'}]})
+            }
+
+            const avatar = gravatar.url(email, {
+                s: '200',
+                r: 'pg',
+                d: 'mm'
+            })
+
+            user = new User({
+                type,
+                name,
+                email,
+                avatar, 
+                password,
+                house,
+                road, 
+                city,
+                state
+            });
+
+            await user.save();
+
+            console.log('** Request - ', req.body);
+            res.send("User registration successful!");
+        }catch(err){
+            console.log('Registration error - ', err)
+            res.status(500).send('Server error');
+        }
 
         // Get user gravatar
 
         // Encrypt password
 
         // Return json web-tocken
-
-        console.log('** Request - ', req.body);
-        res.send("Post User route!");
     }
 );
 
