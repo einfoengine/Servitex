@@ -1,4 +1,5 @@
 {
     "test": "I am test!",
-    "DATABASE_URL": "mongodb://localhost/servitex"
+    "DATABASE_URL": "mongodb://localhost/servitex",
+    "jwtSecret": "servitexsecrettocken"
 }
