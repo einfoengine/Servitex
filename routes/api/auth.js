@@ -24,11 +24,6 @@ router.get('/', auth, async (req, res)=>{
 });
 
 
-
-
-
-
-
 // @route   POST api/auth
 // @desc    Register Users
 // @access  Public
