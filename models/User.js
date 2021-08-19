@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
+    id:{},
     type: {
         type: String,
         required: true,
@@ -41,6 +42,10 @@ const UserSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    edited: {
+        type: Date,
+        default: ''
     }
 });
 
