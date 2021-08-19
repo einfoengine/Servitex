@@ -13,7 +13,7 @@ const User = require('../../models/User');
 // @desc    users api
 // @access  public
 
-router.get('/', (req, res)=>{
+router.get('/users-check', (req, res)=>{
     res.send("User route!");
 });
 
