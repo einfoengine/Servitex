@@ -3,7 +3,9 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+// const config = require('config');
+
+
 const { body, validationResult } = require('express-validator');
 
 // Model
@@ -21,6 +23,13 @@ router.get('/users-check', (req, res)=>{
 // @route   POST api/users
 // @desc    Register Users
 // @access  Public
+router.post(
+    '/login',
+    (req, res)=>{
+        console.log('Login rout');
+        res.send('Login rout');
+    }
+);
 
 router.post(
     '/',
@@ -100,5 +109,15 @@ router.post(
         }
     }
 );
+
+// @Route           /user/general
+// @Description     Register general user
+// @Access          Public
+router.post(
+    '/general',
+    async (req, res) => {
+        res.send("Register general user!");
+    }
+)
 
 module.exports = router;
