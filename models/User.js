@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
+    full_name: {
+        type: String,
+        required: true,
+    },
+    avatar: {
+        type: String
+    },
     type: {
         type: String,
         required: true,
@@ -14,10 +21,10 @@ const UserSchema = new mongoose.Schema({
     //     type: Date,
     //     default: Date.now
     // },
-    updated_at: {
-        type: Date,
-        default: Date.now
-    },
+    // updated_at: {
+    //     type: Date,
+    //     default: Date.now
+    // },
     active: {
         type: Boolean,
         default: true
@@ -52,10 +59,6 @@ const UserSchema = new mongoose.Schema({
     },
     city: {
         type: String,
-    },
-    type: {
-        type: String,
-        required: true
     },
     // General: [Schema: GeneralUser]
     // Service_Provider: [Schema: ServiceProviderUser]

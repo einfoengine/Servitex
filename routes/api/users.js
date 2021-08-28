@@ -3,86 +3,48 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const config = require('config');
-
+const config = require('config');
 
 const { body, validationResult } = require('express-validator');
 
 // Model
 const User = require('../../models/User');
 
-// @route   GET api/users
-// @desc    users api
-// @access  public
-
-router.get('/users-check', (req, res)=>{
-    res.send("User route!");
-});
 
 
-// @route   POST api/users
-// @desc    Register Users
-// @access  Public
+
+
+// @Route           /user/general
+// @Description     Register general user
+// @Access          Public
 router.post(
-    '/login',
-    (req, res)=>{
-        console.log('Login rout');
-        res.send('Login rout');
-    }
-);
-
-router.post(
-    '/',
+    '/general',
     // express-validator
-    [
-        // username must be an email
-        body('email', 'Email must be a valid email').isEmail(),
-        // password must be at least 5 chars long
-        body('password', 'Password must of 5 char minimum').isLength({ min: 5 }),
-    ],
-    // Action
-    async (req, res)=>{
-        // Finds the validation errors in this request and wraps them in an object with handy functions
+    
+        body('full_name', 'Full name must be string and its required').not().isEmpty(),
+        body('phone_number', 'Phone number is required with country code').isLength({ min: 5 }),
+        async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
         }
-
+        // res.send('Geneeral working');
         // Destructure the request
-        const {type, name, email, password, house, road, city, state} = req.body;
-        /* N. B. Model must be included in the script */
+        const {full_name, type, active, phone_number, phone_number_verified, phone_number_verified_timestamp, email, email_verified_timestamp, address, country, state, city} = req.body;
 
         try{
-            // Check if the user exist
-            let user = await User.findOne({email});
-            // Through error if the user found.
+        //     // Check if the user exist
+            let user = await User.findOne({phone_number});
             if(user){
-                res.status(400).json({errors: [{message: 'User already exist'}]})
+                res.status(400).json({errors: [{message: 'User already exist'}]});
             }
 
+            // Create the user
             // Get user gravatar
-            const avatar = gravatar.url(email, {
-                s: '200',
-                r: 'pg',
-                d: 'mm'
-            })
 
             user = new User({
-                type,
-                name,
-                email,
-                avatar, 
-                password,
-                house,
-                road, 
-                city,
-                state
+                full_name, type, active, phone_number, phone_number_verified, phone_number_verified_timestamp, email, email_verified_timestamp, address, country, state, city
             });
-
-            // Encrypt password
-            const salt = await bcrypt.genSalt(10);
-
-            user.password = await bcrypt.hash(password, salt);
 
             await user.save();
 
@@ -93,7 +55,7 @@ router.post(
                     email: user.email
                 }
             }
-            // console.log('config', config.get('jwtSecret'));
+            console.log('config', config.get('jwtSecret'));
             jwt.sign(payload, config.get('jwtSecret'), {expiresIn: 360000}, (err, token)=>{
                 if(err){
                     throw err;
@@ -102,22 +64,13 @@ router.post(
             });
 
             console.log('** Request - ', req.body);
-            // res.send("User registration successful!");
+            
         }catch(err){
-            console.log('Registration error - ', err)
-            res.status(500).send('Server error');
+            console.log('Error!!', err);
         }
     }
-);
 
-// @Route           /user/general
-// @Description     Register general user
-// @Access          Public
-router.post(
-    '/general',
-    async (req, res) => {
-        res.send("Register general user!");
-    }
+
 )
 
 module.exports = router;

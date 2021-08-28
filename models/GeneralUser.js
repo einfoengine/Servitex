@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const GeneralUserSchema = new mongoose.Schema({
-    full_name: {
-        type: String,
-        required: true,
-    },
     total_points: Number,
     default_payment_method: ['cash', 'card'],
     card_details:{
