@@ -11,6 +11,7 @@ module.exports = (req,res,next) => {
     // Verify token
     try{
         const dicoded = jwt.verify(token, config.get('jwtSecret'));
+        console.log('*** Dicoded from middleware - ',dicoded)
         req.user = dicoded.user;
         next();
     }catch(err){
