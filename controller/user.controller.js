@@ -1,78 +1,49 @@
-// Models
-const User = require('../models/User.model');
+const { validationResult } = require('express-validator');
+
+// Services
+const userService = require('../services/user.service');
+
 
 // Register user
-const registerUser = async (req, res, next) => {
+const registerUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+        return res.status(422).json({ message: errors.array() });
     }
-    // res.send('Geneeral working');
-    // Destructure the request
-    const {full_name, type, active, phone_number, phone_number_verified, phone_number_verified_timestamp, email, email_verified_timestamp, address, country, state, city} = req.body;
-
+    
     try{
-    //     // Check if the user exist
-        let user = await User.findOne({phone_number});
-        if(user){
-            res.status(400).json({errors: [{message: 'User already exist'}]});
-        }
-
-        // Create the user
-        // Get user gravatar
-
-        user = new User({
-            full_name, type, active, phone_number, phone_number_verified, phone_number_verified_timestamp, email, email_verified_timestamp, address, country, state, city
-        });
-
-        await user.save();
-
-        // Return json web-token
-        const payload = {
-            user: {
-                id: user.id,
-                email: user.email
-            }
-        }
-        jwt.sign(payload, config.get('jwtSecret'), {expiresIn: 360000}, (err, token)=>{
-            if(err){
-                throw err;
-            }
-            res.json({token})
-        });
-
-        // res.json(user);
-        
+        const result = await userService.registerUser(req.body);
+        return res.status(result.status).json(result);
     }catch(err){
-        consoe.log('Error!!', err);
+        return res.status(err.status || 500).send(err.message);
     }
-    // next();
 }
 // Update user
 const updateUser = async (req, res) => {
     try{
-        let payload = req.params;
-        let user = await User.findOne(payload)
-        if(!user){
-            res.send('Bad credential! Please check the input')
-        }else{
-            let update_user = await User.findOneAndUpdate(
-                {_id: user._id},
-                {$set: req.body},
-                {new: true}
-            );
-            res.send(update_user);
-        }
+        const result = await userService.updateUser(req.params, req.body);
+        res.status(result.status).send(result);
     }catch(err){
-        console.log(err)
+        res.status(err.status).send(err);
     }
 }
-// Delete user
-// Find user by ID
+
 // Get all users
-// Get users by type
-// Get users by attribute
+const getUsers = async (req, res) => {
+    const result = await userService.getUsers();
+    res.send(result.query.users);
+}
+
+// Get user by id
+const getUserById = async (req, res) => {
+    const result = await userService.getUserById(req.params);
+    res.send(result.query.user);
+}
+
 
 module.exports = {
-    updateUser, registerUser
+    updateUser, 
+    registerUser, 
+    getUsers,
+    getUserById
 }

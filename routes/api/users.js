@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const config = require('config');
 const auth = require('../../middlewares/auth');
 
-const { body, validationResult } = require('express-validator');
+const { body } = require('express-validator');
 
 // Controllers
 const userController = require('../../controller/user.controller');
-const serviceProvidersController = require('../../controller/serviceProviders.controller');
+const serviceProviderController = require('../../controller/serviceProvider.controller');
 
 
 // @Route           /user/general
@@ -28,7 +26,7 @@ router.post(
 // @Description     Update general user
 // @Access          Public
 router.put(
-    '/general/:id', 
+    '/general/:phone_number', 
     userController.updateUser
 );
 
@@ -37,9 +35,8 @@ router.put(
 // @Description     Register service provider
 // @Access          Admin
 router.post(
-    '/service-providers',
-    auth,
-    serviceProvidersController.registerUser
+    '/service-provider',
+    serviceProviderController.registerUser
 )
 
 
@@ -49,13 +46,23 @@ router.post(
 // @Description     Update service provider user
 // @Access          Admin
 router.put(
-    '/service-providers/:identity_card_no', 
-    serviceProvidersController.updateUser
+    '/service-provider/:identity_card_no', 
+    serviceProviderController.updateUser
 );
 
-// @Route           /user/service-providers/:identity_card_no
-// @Description     Update service provider user
+// @Route           /users
+// @Description     Get all the users
 // @Access          Admin
-
+router.get(
+    '/',
+    userController.getUsers
+);
+// @Route           /users/:id
+// @Description     Get all the users
+// @Access          Admin
+router.get(
+    '/:_id',
+    userController.getUserById
+);
 
 module.exports = router;

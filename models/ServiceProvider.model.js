@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const ServiceProviderUserSchema = new Schema({
+const ServiceProviderSchema = new Schema({
     type: {
         type: String,
         enum: ['individual', 'company']
@@ -20,6 +20,7 @@ const ServiceProviderUserSchema = new Schema({
     },
     Identity_card_type: {
         type: String,
+        required: ()=>{this.type==='individual'?true:false},
         enum: ['passport', 'national_id']
     },
     verified: {
@@ -44,4 +45,4 @@ const ServiceProviderUserSchema = new Schema({
     }
 })
 
-module.exports = ServiceProviderUser = mongoose.model('service_provider', ServiceProviderUserSchema);
+module.exports = ServiceProvider = mongoose.model('service_provider', ServiceProviderSchema);
