@@ -36,8 +36,8 @@ const getUsers = async (req, res) => {
 
 // Get user by id
 const getUserById = async (req, res) => {
-    const result = await userService.getUserById(req.params);
-    res.send(result.query.user);
+    const result = await userService.getUsers();
+    res.send(result.query.users);
 }
 
 

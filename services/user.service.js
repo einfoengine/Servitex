@@ -6,7 +6,7 @@ const {generateErrorResponse, generateSuccessResponse} = require('../util/');
 
 // Register user
 const registerUser = async(payload) => {
-    const user = await User.findOne({phone_number: payload.phone_number});
+    let user = await User.findOne({phone_number: payload.phone_number});
     if(user){
         return Promise.reject(generateErrorResponse(403, 'User already exist'));
     }
